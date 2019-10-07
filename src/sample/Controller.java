@@ -77,4 +77,6 @@ public class Controller implements Initializable {
         File file = event.getDragboard().getFiles().get(0);
         tfEnterFile.setText(file.getName());
     }
+
+
 }
