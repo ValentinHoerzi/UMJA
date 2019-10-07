@@ -27,6 +27,11 @@ public class Controller implements Initializable {
 
     @FXML public Button btnConvert;
 
+    private Model model;
+
+    public void setModel(Model model){
+        this.model = model;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -12,10 +12,14 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         stage.setTitle("UMJA Application");
-        Scene mainScene = new Scene(loader.load());
+        Scene scene = new Scene(loader.load());
         Controller controller = loader.getController();
 
-        stage.setScene(mainScene);
+        //Create dependence between objects
+        Model model = new Model(controller);
+        controller.setModel(model);
+
+        stage.setScene(scene);
         stage.show();
     }
 
