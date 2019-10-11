@@ -1,9 +1,13 @@
 package sample;
 
+import java.util.List;
+
 public class Compiler {
 
-    public void compile(){
-        
+    private List<Object> allClazzes;
+
+    public void compile(List<Object> allClazzes){
+
     }
 
 
