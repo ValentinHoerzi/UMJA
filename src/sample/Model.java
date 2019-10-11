@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Model {
@@ -16,6 +17,9 @@ public class Model {
 
     public Model(Controller controller) {
         this.controller = controller;
+
+        Compiler comp = new Compiler();
+        comp.compile(Arrays.asList(new Clazz("testname", Arrays.asList("public static test"))));
     }
 
     public List<Clazz> parse(File file) {
