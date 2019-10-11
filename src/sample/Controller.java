@@ -83,5 +83,8 @@ public class Controller implements Initializable {
         tfEnterFile.setText(file.getName());
     }
 
+    public  void setErrorMessage(String errorMessage){
+
+    }
 
 }
