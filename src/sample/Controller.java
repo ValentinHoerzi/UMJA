@@ -27,6 +27,11 @@ public class Controller implements Initializable {
 
     @FXML public Button btnConvert;
 
+    private Model model;
+
+    public void setModel(Model model){
+        this.model = model;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,4 +82,6 @@ public class Controller implements Initializable {
         File file = event.getDragboard().getFiles().get(0);
         tfEnterFile.setText(file.getName());
     }
+
+
 }
