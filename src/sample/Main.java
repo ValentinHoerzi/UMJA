@@ -6,10 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
+        Model m = new Model(null);
+        m.parse(new File("uml.graphml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         stage.setTitle("UMJA Application");
         Scene scene = new Scene(loader.load());

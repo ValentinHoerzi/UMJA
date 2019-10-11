@@ -26,34 +26,17 @@ public class Model {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(file);
 
-            //optional, but recommended
-            //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
             doc.getDocumentElement().normalize();
 
-            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("node");
 
-            NodeList nList = doc.getElementsByTagName("graph");
 
-            System.out.println("----------------------------");
+                Node nNode = nList.item(0);
+                    System.out.println("package-name : " + ((Element)nList.item(0)).getElementsByTagName("y:NodeLabel").item(0).getTextContent().trim());
+            System.out.println("class-name : " + ((Element)nList.item(1)).getElementsByTagName("y:NodeLabel").item(0).getTextContent().trim());
+            System.out.println("variablen : " + ((Element)nList.item(1)).getElementsByTagName("y:AttributeLabel").item(0).getTextContent().trim());
+            System.out.println("methods : " + ((Element)nList.item(1)).getElementsByTagName("y:MethodLabel").item(0).getTextContent().trim());
 
-            for (int temp = 0; temp < nList.getLength(); temp++) {
-
-                Node nNode = nList.item(temp);
-
-                System.out.println("\nCurrent Element :" + nNode.getNodeName());
-
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
-                    Element eElement = (Element) nNode;
-
-                    System.out.println("data: " + eElement.getAttribute("data"));
-                    System.out.println("node : " + eElement.getElementsByTagName("node").item(0).getTextContent());
-                    System.out.println("Last Name : " + eElement.getElementsByTagName("node").item(1).getTextContent());
-                    System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-                    System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
-
-                }
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
