@@ -4,13 +4,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import sun.java2d.pipe.SolidTextRenderer;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Model {
     private Controller controller;
@@ -19,11 +18,13 @@ public class Model {
         this.controller = controller;
 
         Compiler comp = new Compiler();
-        comp.compile(Arrays.asList(new Clazz("testname", Arrays.asList("public static test"))));
+        comp.compile(parse(new File("uml.graphml")),"");
     }
 
     public List<Clazz> parse(File file) {
         List<Clazz> clazzes = new ArrayList<>();
+        Map<String, String[]> idToName = new TreeMap<>();
+
         try {
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -32,18 +33,63 @@ public class Model {
 
             doc.getDocumentElement().normalize();
 
-            NodeList nList = doc.getElementsByTagName("node");
+            NodeList nodeListClasses = doc.getElementsByTagName("node");
+            String nameSpace = null;
+            for (int i = 0; i < nodeListClasses.getLength(); i++) {
+                Clazz.Builder clazzBuilder = Clazz.Builder.aClazz();
 
+                String id = ((Element) nodeListClasses.item(i)).getAttribute("id");
+                Element element = ((Element) nodeListClasses.item(i));
+                if (!id.contains(":")) {
+                    nameSpace = element.getElementsByTagName("y:NodeLabel").item(0).getTextContent().trim();
+                } else {
+                    clazzBuilder.withNameSpace(nameSpace);
 
-                Node nNode = nList.item(0);
-                    System.out.println("package-name : " + ((Element)nList.item(0)).getElementsByTagName("y:NodeLabel").item(0).getTextContent().trim());
-            System.out.println("class-name : " + ((Element)nList.item(1)).getElementsByTagName("y:NodeLabel").item(0).getTextContent().trim());
-            System.out.println("variablen : " + ((Element)nList.item(1)).getElementsByTagName("y:AttributeLabel").item(0).getTextContent().trim());
-            System.out.println("methods : " + ((Element)nList.item(1)).getElementsByTagName("y:MethodLabel").item(0).getTextContent().trim());
+                    String name = element.getElementsByTagName("y:NodeLabel").item(0).getTextContent().trim();
+                    clazzBuilder.withName(name);
+                    idToName.put(id, new String[]{nameSpace, name});
+
+                    String stereotype = element.getElementsByTagName("y:UML").item(0).getAttributes().getNamedItem("stereotype").getTextContent();
+                    clazzBuilder.withStereotype(stereotype.equals("") ? "class" : stereotype);
+
+                    String variables = removeUnnecessaryHTML(element.getElementsByTagName("y:AttributeLabel").item(0).getTextContent().trim());
+                    clazzBuilder.withVariables(stereotype.equals("enumeration")
+                            ? Arrays.asList(variables)
+                            : Arrays.asList(variables.split("\n")));
+                    if (!stereotype.equals("enumeration")) {
+                        String methods = removeUnnecessaryHTML(element.getElementsByTagName("y:MethodLabel").item(0).getTextContent().trim());
+                        clazzBuilder.withMetohds(Arrays.asList(methods.split("\n")));
+                    }
+
+                    clazzes.add(clazzBuilder.build());
+                }
+            }
+            NodeList nodeListReferences = doc.getElementsByTagName("edge");
+            for (int i = 0; i < nodeListReferences.getLength(); i++) {
+                Element edge = ((Element) nodeListReferences.item(i));
+                String srcId = edge.getAttribute("source");
+                String trgtId = edge.getAttribute("target");
+
+                String arrowLine = ((Element) edge.getElementsByTagName("y:LineStyle").item(0)).getAttribute("type");
+                String arrowHead = ((Element) edge.getElementsByTagName("y:Arrows").item(0)).getAttribute("target");
+
+                if (arrowLine.equals("dashed") && arrowHead.equals("white_delta")) {
+                    clazzes.stream()
+                            .filter(clazz -> clazz.getNameSpace().equals(idToName.get(srcId)[0]) && clazz.getName().equals(idToName.get(srcId)[1]))
+                            .forEach(clazz -> clazz.addImplementation(idToName.get(trgtId)[1]));
+                }
+            }
+
 
         } catch (Exception e) {
-            e.printStackTrace();
+            controller.setErrorMessage("Failed to parse File\n\n"+e.getMessage());
         }
         return clazzes;
+    }
+
+    private String removeUnnecessaryHTML(String string) {
+        return string.replaceAll("<html>", "")
+                .replaceAll("</html>", "")
+                .replaceAll("<br>", "");
     }
 }

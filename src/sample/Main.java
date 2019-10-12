@@ -12,8 +12,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        Model m = new Model(null);
-        m.parse(new File("uml.graphml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         stage.setTitle("UMJA Application");
         Scene scene = new Scene(loader.load());
