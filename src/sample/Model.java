@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Model {
     private Controller controller;
@@ -18,7 +19,7 @@ public class Model {
         this.controller = controller;
 
         Compiler comp = new Compiler();
-        comp.compile(parse(new File("uml.graphml")),"");
+        //comp.compile(parse(new File("uml.graphml")), "");
     }
 
     public List<Clazz> parse(File file) {
@@ -53,14 +54,30 @@ public class Model {
                     clazzBuilder.withStereotype(stereotype.equals("") ? "class" : stereotype);
 
                     String variables = removeUnnecessaryHTML(element.getElementsByTagName("y:AttributeLabel").item(0).getTextContent().trim());
-                    clazzBuilder.withVariables(stereotype.equals("enumeration")
+
+                    List<String> variables_list = stereotype.equals("enumeration")
                             ? Arrays.asList(variables)
-                            : Arrays.asList(variables.split("\n")));
+                            : Arrays.asList(variables.split("\n"));
+                    variables_list = variables_list.stream().filter(str -> str.length() > 3).collect(Collectors.toList());
+                    for (int idx = 0; idx < variables_list.size(); idx++) {
+                        variables_list.set(idx, addStaticIfNeeded(variables_list.get(idx)));
+                    }
+                    if (!stereotype.equals("enumeration")) {
+                        for (int idx = 0; idx < variables_list.size(); idx++) {
+                            variables_list.set(idx, addFinalIfNeeded(variables_list.get(idx)));
+                        }
+                    }
+                    clazzBuilder.withVariables(variables_list);
+
                     if (!stereotype.equals("enumeration")) {
                         String methods = removeUnnecessaryHTML(element.getElementsByTagName("y:MethodLabel").item(0).getTextContent().trim());
-                        clazzBuilder.withMetohds(Arrays.asList(methods.split("\n")));
+                        List<String> methods_list = Arrays.asList(methods.split("\n"));
+                        methods_list = methods_list.stream().filter(str -> str.length() > 3).collect(Collectors.toList());
+                        for (int idx = 0; idx < methods_list.size(); idx++) {
+                            methods_list.set(idx, addStaticIfNeeded(methods_list.get(idx)));
+                        }
+                        clazzBuilder.withMetohds(methods_list);
                     }
-
                     clazzes.add(clazzBuilder.build());
                 }
             }
@@ -76,20 +93,51 @@ public class Model {
                 if (arrowLine.equals("dashed") && arrowHead.equals("white_delta")) {
                     clazzes.stream()
                             .filter(clazz -> clazz.getNameSpace().equals(idToName.get(srcId)[0]) && clazz.getName().equals(idToName.get(srcId)[1]))
-                            .forEach(clazz -> clazz.addImplementation(idToName.get(trgtId)[1]));
+                            .forEach(clazz -> {
+                                clazz.addImplementation(idToName.get(trgtId)[1]);
+                                clazz.addImport(idToName.get(trgtId)[0] + "." + idToName.get(trgtId)[1]);
+                            });
+                } else if (arrowLine.equals("line") && arrowHead.equals("white_diamond")) {
+                    clazzes.stream()
+                            .filter(clazz -> clazz.getNameSpace().equals(idToName.get(trgtId)[0]) && clazz.getName().equals(idToName.get(trgtId)[1]))
+                            .forEach(clazz -> clazz.addImport(idToName.get(srcId)[0] + "." + idToName.get(srcId)[1]));
+                } else if (arrowLine.equals("dashed") && arrowHead.equals("plain")) {
+                    clazzes.stream()
+                            .filter(clazz -> clazz.getNameSpace().equals(idToName.get(srcId)[0]) && clazz.getName().equals(idToName.get(srcId)[1]))
+                            .forEach(clazz -> clazz.addImport(idToName.get(trgtId)[0] + "." + idToName.get(trgtId)[1]));
                 }
             }
 
 
         } catch (Exception e) {
-            controller.setErrorMessage("Failed to parse File\n\n"+e.getMessage());
+            e.printStackTrace();
+            controller.setErrorMessage("Failed to parse File\n\n" + e.getMessage());
         }
         return clazzes;
+    }
+
+    private String addFinalIfNeeded(String string) {
+        String[] sarr = string.split(" ");
+        int idx = string.startsWith("static") ? 2 : 1;
+        System.out.println(string);
+        if (sarr[idx].equals(sarr[idx].toUpperCase())) {
+            string = "final " + string;
+        }
+        return string;
     }
 
     private String removeUnnecessaryHTML(String string) {
         return string.replaceAll("<html>", "")
                 .replaceAll("</html>", "")
-                .replaceAll("<br>", "");
+                .replaceAll("<br>", "")
+                .replaceAll("</u>", "");
+    }
+
+    private String addStaticIfNeeded(String string) {
+        if (string.contains("<u>") || string.contains("</u>")) {
+            string = string.replaceAll("<u>", "").replaceAll("</u>", "");
+            return "static " + string;
+        }
+        return string;
     }
 }
