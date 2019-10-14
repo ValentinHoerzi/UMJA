@@ -16,7 +16,7 @@ public class Compiler {
             methods = createMethodFromString(clazz);
             variables = createVariableFromString(clazz);
         }
-        variables.addAll(methods);// add all methods to the variable collection so the file is complete and no further collection has to be created 
+        variables.addAll(methods);// add all methods to the variable collection so the file is complete and no further collection has to be created
         writeFile(path, variables);
     }
 
