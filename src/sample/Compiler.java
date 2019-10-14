@@ -13,12 +13,31 @@ public class Compiler {
         List<String> methods = new ArrayList<>();
         List<String> variables = new ArrayList<>();
         for (Clazz clazz : allClazzes) {
-            methods = createMethodFromString(clazz);
-            variables = createVariableFromString(clazz);
+         switch(clazz.getStereotype)  { // check if either class, enum or interface must be created 
+		 	 case "class":
+			 createClass(clazz);
+			 break;
+			 case "enumeration":
+			 createEnum(clazz);
+			 break;
+			 case "interface":
+			 createInterface(clazz);
+			 break;
+		 }
         }
-        variables.addAll(methods);// add all methods to the variable collection so the file is complete and no further collection has to be created
-        writeFile(path, variables);
     }
+
+	private void createClass(Clazz clazz){
+		
+	}
+
+	private void createEnum(Clazz clazz){
+		
+	}
+
+	private void createInterface(Clazz clazz){
+		
+	}
 
     private void writeFile(String path, List<String> fileString) {
         try (FileWriter fileWriter = new FileWriter(path)) {

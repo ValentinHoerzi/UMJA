@@ -4,20 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clazz {
-    private String stereotype;
-    private String nameSpace;
-    private String name;
-    private List<String> metohds;
-    private List<String> variables;
-    private List<String> implementations;
+    private String stereotype; // class, enumeration, interface
+    private String nameSpace; //package
+    private String name; // classname
+    private List<String> metohds; // class methods  
+    private List<String> variables; // class variables - - enum values also here
+    private List<String> implementations; // class implementations (implementet interfaces)
+	private List<String> imports; // imports (import java.util.ArrayList)
 
-    public Clazz(String stereotype, String nameSpace, String name, List<String> metohds, List<String> variables, List<String> implementations) {
+    public Clazz(String stereotype, String nameSpace, String name, List<String> metohds, List<String> variables, List<String> implementations, List<String> imports) {
         this.stereotype = stereotype;
         this.nameSpace = nameSpace;
         this.name = name;
         this.metohds = metohds;
         this.variables = variables;
         this.implementations = implementations;
+		this.imports = imports;
     }
 
     public Clazz() {
