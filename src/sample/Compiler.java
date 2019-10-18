@@ -13,7 +13,7 @@ public class Compiler {
         List<String> methods = new ArrayList<>();
         List<String> variables = new ArrayList<>();
         for (Clazz clazz : allClazzes) {
-         switch(clazz.getStereotype)  { // check if either class, enum or interface must be created 
+         switch(clazz.getStereotype())  { // check if either class, enum or interface must be created
 		 	 case "class":
 			 createClass(clazz);
 			 break;

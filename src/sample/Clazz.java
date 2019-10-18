@@ -111,6 +111,14 @@ public class Clazz {
         return variables;
     }
 
+    public List<String> getImports() {
+        return imports;
+    }
+
+    public void setImports(List<String> imports) {
+        this.imports = imports;
+    }
+
     public void setVariables(List<String> variables) {
         this.variables = variables;
     }
