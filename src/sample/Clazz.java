@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clazz {
-    private String stereotype; // class, enumeration, interface
-    private String nameSpace; //package
-    private String name; // classname
-    private List<String> metohds; // class methods  
-    private List<String> variables; // class variables - - enum values also here
-    private List<String> implementations; // class implementations (implementet interfaces)
-	private List<String> imports; // imports (import java.util.ArrayList)
+    private String stereotype;
+    private String nameSpace;
+    private String name;
+    private List<String> metohds;
+    private List<String> variables;
+    private List<String> implementations;
+    private List<String> imports;
 
     public Clazz(String stereotype, String nameSpace, String name, List<String> metohds, List<String> variables, List<String> implementations, List<String> imports) {
         this.stereotype = stereotype;
@@ -19,60 +19,10 @@ public class Clazz {
         this.metohds = metohds;
         this.variables = variables;
         this.implementations = implementations;
-		this.imports = imports;
+        this.imports = imports;
     }
 
     public Clazz() {
-    }
-
-    public static final class Builder {
-        private String stereotype;
-        private String nameSpace;
-        private String name;
-        private List<String> metohds;
-        private List<String> variables;
-        private List<String> implementations;
-
-        private Builder() {
-        }
-
-        public static Builder aClazz() {
-            return new Builder();
-        }
-
-        public Builder withStereotype(String stereotype) {
-            this.stereotype = stereotype;
-            return this;
-        }
-
-        public Builder withNameSpace(String nameSpace) {
-            this.nameSpace = nameSpace;
-            return this;
-        }
-
-        public Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder withMetohds(List<String> metohds) {
-            this.metohds = metohds;
-            return this;
-        }
-
-        public Builder withVariables(List<String> variables) {
-            this.variables = variables;
-            return this;
-        }
-
-        public Builder withImplementations(List<String> implementations) {
-            this.implementations = implementations;
-            return this;
-        }
-
-        public Clazz build() {
-            return new Clazz(stereotype, nameSpace, name, metohds, variables, implementations);
-        }
     }
 
     public String getStereotype() {
@@ -131,11 +81,27 @@ public class Clazz {
         this.implementations = implementations;
     }
 
+    public List<String> getImports() {
+        return imports;
+    }
+
+    public void setImports(List<String> imports) {
+        this.imports = imports;
+    }
+
+
     public void addImplementation(String implementation) {
         if (implementations == null) {
             implementations = new ArrayList<>();
         }
         implementations.add(implementation);
+    }
+
+    public void addImport(String import_string) {
+        if (imports == null) {
+            imports = new ArrayList<>();
+        }
+        imports.add(import_string);
     }
 
     @Override
@@ -147,6 +113,72 @@ public class Clazz {
                 ", metohds=" + metohds +
                 ", variables=" + variables +
                 ", implementations=" + implementations +
+                ", imports=" + imports +
                 '}';
+    }
+
+
+    public static final class Builder {
+        private String stereotype;
+        private String nameSpace;
+        private String name;
+        private List<String> metohds;
+        private List<String> variables;
+        private List<String> implementations;
+        private List<String> imports;
+
+        private Builder() {
+        }
+
+        public static Builder aClazz() {
+            return new Builder();
+        }
+
+        public Builder withStereotype(String stereotype) {
+            this.stereotype = stereotype;
+            return this;
+        }
+
+        public Builder withNameSpace(String nameSpace) {
+            this.nameSpace = nameSpace;
+            return this;
+        }
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withMetohds(List<String> metohds) {
+            this.metohds = metohds;
+            return this;
+        }
+
+        public Builder withVariables(List<String> variables) {
+            this.variables = variables;
+            return this;
+        }
+
+        public Builder withImplementations(List<String> implementations) {
+            this.implementations = implementations;
+            return this;
+        }
+
+        public Builder withImports(List<String> imports) {
+            this.imports = imports;
+            return this;
+        }
+
+        public Clazz build() {
+            Clazz clazz = new Clazz();
+            clazz.setStereotype(stereotype);
+            clazz.setNameSpace(nameSpace);
+            clazz.setName(name);
+            clazz.setMetohds(metohds);
+            clazz.setVariables(variables);
+            clazz.setImplementations(implementations);
+            clazz.setImports(imports);
+            return clazz;
+        }
     }
 }
