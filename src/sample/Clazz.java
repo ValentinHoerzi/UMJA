@@ -81,14 +81,6 @@ public class Clazz {
         this.implementations = implementations;
     }
 
-    public List<String> getImports() {
-        return imports;
-    }
-
-    public void setImports(List<String> imports) {
-        this.imports = imports;
-    }
-
 
     public void addImplementation(String implementation) {
         if (implementations == null) {
