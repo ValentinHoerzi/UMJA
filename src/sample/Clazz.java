@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clazz {
-    private String stereotype;
-    private String nameSpace;
-    private String name;
+    private String stereotype; // class, enum, interface
+    private String nameSpace; // package
+    private String name; // class name
     private List<String> metohds;
     private List<String> variables;
     private List<String> implementations;
-    private List<String> imports;
+    private List<String> imports; // import + text from list + ;
 
     public Clazz(String stereotype, String nameSpace, String name, List<String> metohds, List<String> variables, List<String> implementations, List<String> imports) {
         this.stereotype = stereotype;
