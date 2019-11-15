@@ -65,25 +65,36 @@ public class Compiler {
         //final static - SCANNER : Scanner
         // variables
         for (String item : clazz.getVariables()) {
-            String[] parts = item.split(" ");
             String variable = "";
-            for (int i = 0; i < parts.length - 1; i++) {
-                if (parts[i].equals(" final ") || parts[i].equals(" static ")) {
-                    variable += parts[i];
-                } else if (parts[i].equals("-")) {
-                    variable += " private ";
-                } else if (parts[i].equals("+")) {
-                    variable += " public ";
-                } else if(parts[i].equals(":")){
-                    variable += parts[i];
-                }
+
+            // add public|static final static
+            if (item.contains("+")) {
+                variable += "public ";
             }
+            if (item.contains("-")) {
+                variable += "private ";
+            }
+            if (item.contains("final")) {
+                variable += "final ";
+            }
+            if (item.contains("static")) {
+                variable += "static ";
+            }
+
+            // add name and type of variable
+            String[] parts = item.split(" ");
+            variable += parts[parts.length - 1] + " " + parts[parts.length - 3] + ";";
+
+            fileText.add(variable);
         }
 
+        // methods
+        // static + main(args:String[], name:Type) : void
 
-// methods
 
-//close class
+
+
+        //close class
         fileText.add("}");
     }
 
