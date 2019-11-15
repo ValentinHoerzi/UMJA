@@ -36,12 +36,14 @@ public class Compiler {
         fileText.add("package " + clazz.getNameSpace() + ";");
 
         //imports
-        for (String item : clazz.getImports()) {
-            fileText.add("import " + item + ";");
+        if (clazz.getImports() != null) {
+            for (String item : clazz.getImports()) {
+                fileText.add("import " + item + ";");
+            }
         }
 
         //class - implementations
-        if (clazz.getImplementations().isEmpty()) {
+        if (clazz.getImplementations() == null || clazz.getImplementations().isEmpty()) {
             fileText.add("public class " + clazz.getName() + "{");
         } else {
             String classLine = "public class " + clazz.getName() + " implements";
@@ -60,21 +62,28 @@ public class Compiler {
             fileText.add(classLine);
         }
 
-        //static final + name value
-
+        //final static - SCANNER : Scanner
         // variables
         for (String item : clazz.getVariables()) {
-
             String[] parts = item.split(" ");
-            String method = "";
-            
-
+            String variable = "";
+            for (int i = 0; i < parts.length - 1; i++) {
+                if (parts[i].equals(" final ") || parts[i].equals(" static ")) {
+                    variable += parts[i];
+                } else if (parts[i].equals("-")) {
+                    variable += " private ";
+                } else if (parts[i].equals("+")) {
+                    variable += " public ";
+                } else if(parts[i].equals(":")){
+                    variable += parts[i];
+                }
+            }
         }
 
 
-        // methods
+// methods
 
-        //close class
+//close class
         fileText.add("}");
     }
 

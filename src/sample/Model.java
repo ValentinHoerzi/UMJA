@@ -19,7 +19,7 @@ public class Model {
         this.controller = controller;
 
         Compiler comp = new Compiler();
-        //comp.compile(parse(new File("uml.graphml")), "");
+        comp.compile(parse(new File("D:/Dokumente_D/Google Drive/4AHIF/AUD/UMJA/uml.graphml")), "D:/Desktop/UMJAResult/test");
     }
 
     public List<Clazz> parse(File file) {
