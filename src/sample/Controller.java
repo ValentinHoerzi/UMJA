@@ -47,6 +47,7 @@ public class Controller implements Initializable {
         if(selectedDirectory == null){
             //No Directory selected
         }else{
+            model.setFilePath_java(selectedDirectory.getAbsolutePath());
             tfProjectPath.setText(selectedDirectory.getAbsolutePath());
         }
     }
@@ -61,6 +62,7 @@ public class Controller implements Initializable {
         File file = fileChooser.showOpenDialog(((Node)actionEvent.getTarget()).getScene().getWindow());
 
         if(file != null){
+            model.setFilePath_graphml(file.getAbsolutePath());
             tfEnterFile.setText(file.getName());
             btnConvert.setDisable(false);
         }
