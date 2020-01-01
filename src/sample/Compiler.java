@@ -1,10 +1,14 @@
 package sample;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Compiler {
 
@@ -91,8 +95,23 @@ public class Compiler {
         // methods
         // static + main(args:String[], name:Type) : void
 
+        for (String item : clazz.getMetohds()) {
+            String method = "";
+            if (item.contains("+")) {
+                method += "public ";
+            }
+            if (item.contains("-")) {
+                method += "private ";
+            }
+            if (item.contains("static")) {
+                method += "static ";
+            }
+
+            String[] parts = item.split(" ");
+            method += parts[parts.length - 1];
 
 
+        }
 
         //close class
         fileText.add("}");
