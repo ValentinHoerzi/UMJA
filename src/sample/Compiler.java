@@ -1,9 +1,14 @@
 package sample;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Compiler {
 
@@ -13,11 +18,111 @@ public class Compiler {
         List<String> methods = new ArrayList<>();
         List<String> variables = new ArrayList<>();
         for (Clazz clazz : allClazzes) {
-            methods = createMethodFromString(clazz);
-            variables = createVariableFromString(clazz);
+            switch (clazz.getStereotype()) { // check if either class, enum or interface must be created
+                case "class":
+                    createClass(clazz);
+                    break;
+                case "enumeration":
+                    createEnum(clazz);
+                    break;
+                case "interface":
+                    createInterface(clazz);
+                    break;
+            }
         }
-        variables.addAll(methods);// add all methods to the variable collection so the file is complete and no further collection has to be created 
-        writeFile(path, variables);
+    }
+
+    private void createClass(Clazz clazz) {
+        //list with text which gets written in file
+        List<String> fileText = new LinkedList<>();
+
+        //package
+        fileText.add("package " + clazz.getNameSpace() + ";");
+
+        //imports
+        if (clazz.getImports() != null) {
+            for (String item : clazz.getImports()) {
+                fileText.add("import " + item + ";");
+            }
+        }
+
+        //class - implementations
+        if (clazz.getImplementations() == null || clazz.getImplementations().isEmpty()) {
+            fileText.add("public class " + clazz.getName() + "{");
+        } else {
+            String classLine = "public class " + clazz.getName() + " implements";
+
+            //go through all implementations
+            for (int i = 0; i < clazz.getImplementations().size(); i++) {
+                // if it is the last implementation no komma but {
+                if (i == clazz.getImplementations().size()) {
+                    classLine += " " + clazz.getImplementations().get(i) + "{ ";
+
+                } else {
+                    classLine += " " + clazz.getImplementations().get(i) + ", ";
+                }
+            }
+            // add the class line to the file
+            fileText.add(classLine);
+        }
+
+        //final static - SCANNER : Scanner
+        // variables
+        for (String item : clazz.getVariables()) {
+            String variable = "";
+
+            // add public|static final static
+            if (item.contains("+")) {
+                variable += "public ";
+            }
+            if (item.contains("-")) {
+                variable += "private ";
+            }
+            if (item.contains("final")) {
+                variable += "final ";
+            }
+            if (item.contains("static")) {
+                variable += "static ";
+            }
+
+            // add name and type of variable
+            String[] parts = item.split(" ");
+            variable += parts[parts.length - 1] + " " + parts[parts.length - 3] + ";";
+
+            fileText.add(variable);
+        }
+
+        // methods
+        // static + main(args:String[], name:Type) : void
+
+        for (String item : clazz.getMetohds()) {
+            String method = "";
+            if (item.contains("+")) {
+                method += "public ";
+            }
+            if (item.contains("-")) {
+                method += "private ";
+            }
+            if (item.contains("static")) {
+                method += "static ";
+            }
+
+            String[] parts = item.split(" ");
+            method += parts[parts.length - 1];
+
+
+        }
+
+        //close class
+        fileText.add("}");
+    }
+
+    private void createEnum(Clazz clazz) {
+
+    }
+
+    private void createInterface(Clazz clazz) {
+
     }
 
     private void writeFile(String path, List<String> fileString) {

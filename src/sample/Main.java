@@ -15,8 +15,8 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         stage.setTitle("UMJA Application");
         Model m = new Model(null);
-        Parser parser = new Parser(m);
-        parser.parse(new File("uml.graphml")).forEach(System.out::println);
+
+        m.parser.parse(new File("uml.graphml")).forEach(System.out::println);
         Scene scene = new Scene(loader.load());
         Controller controller = loader.getController();
 

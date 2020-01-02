@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Compiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Compiler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Compiler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,16 +63,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>buil</find>
-      <find>builder</find>
-      <find>nList</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>nodeListClasses</replace>
-    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -338,7 +328,9 @@
       <workItem from="1571046806648" duration="2063000" />
       <workItem from="1573465863052" duration="11000" />
       <workItem from="1573813411372" duration="1344000" />
-      <workItem from="1577975845686" duration="859000" />
+      <workItem from="1574161980727" duration="2430000" />
+      <workItem from="1574418855058" duration="74000" />
+      <workItem from="1577906127180" duration="211000" />
     </task>
     <servers />
   </component>
