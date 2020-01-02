@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/employee.graphml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/Employee.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ModelTest.parse2">
+  <component name="RunManager" selected="JUnit.ModelTest (1)">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -315,9 +309,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ModelTest (1)" />
         <item itemvalue="JUnit.ModelTest.parse2" />
         <item itemvalue="JUnit.ModelTest.parse (1)" />
-        <item itemvalue="JUnit.ModelTest (1)" />
         <item itemvalue="JUnit.ModelTest.parse" />
         <item itemvalue="JUnit.ModelTest" />
       </list>
@@ -344,6 +338,7 @@
       <workItem from="1571046806648" duration="2063000" />
       <workItem from="1573465863052" duration="11000" />
       <workItem from="1573813411372" duration="1344000" />
+      <workItem from="1577975845686" duration="859000" />
     </task>
     <servers />
   </component>

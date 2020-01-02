@@ -38,4 +38,19 @@ class ModelTest {
         }
 
     }
+
+    @Test
+    void parse3() {
+        List<Clazz> clazzes = new ArrayList<>();
+        clazzes = parser.parse(new File("user_visitor_customer.graphml"));
+        System.out.println(clazzes);
+        if(clazzes.get(0).getName() == "Customer" && clazzes.get(0).getVariables().get(0) == "final static - SCANNER : Scanner"
+                && clazzes.get(0).getVariables().get(1) == "final static - STORE : Store"
+                && clazzes.get(0).getVariables().get(2) == "static - user : User"
+                && clazzes.get(0).getMetohds().get(0) == "static + main(args : String[]) : void"
+        ){
+            assertTrue(true);
+        }
+
+    }
 }
