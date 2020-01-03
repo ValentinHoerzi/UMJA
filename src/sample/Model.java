@@ -26,7 +26,8 @@ public class Model {
 
         Compiler comp = new Compiler();
         //comp.compile(parser.parse(new File(filePath_graphml)), filePath_java);
-        comp.compile(parser.parse(new File("D:\\Dokumente_D\\Google Drive\\4AHIF\\AUD\\uml.graphml")), "D:\\Desktop_D\\bluejProj");
+        //comp.compile(parser.parse(new File("D:\\Dokumente_D\\Google Drive\\4AHIF\\AUD\\uml.graphml")), "D:\\Desktop_D\\bluejProj");
+        //comp.compile(parser.parse(new File("uml_v3.graphml")), "bluejProj");
     }
 
     public String getFilePath_java() {
