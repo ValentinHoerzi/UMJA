@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class Model {
     private Controller controller;
-    private Parser parser;
+    public Parser parser;
 
     private String filePath_graphml;
     private String filePath_java;
@@ -24,8 +24,9 @@ public class Model {
         this.controller = controller;
         parser = new Parser(this);
 
-        sample.Compiler comp = new sample.Compiler();
-        //comp.compile(parse(new File("uml.graphml")), "");
+        Compiler comp = new Compiler();
+        //comp.compile(parser.parse(new File(filePath_graphml)), filePath_java);
+        comp.compile(parser.parse(new File("D:\\Dokumente_D\\Google Drive\\4AHIF\\AUD\\uml.graphml")), "D:\\Desktop_D\\bluejProj");
     }
 
     public String getFilePath_java() {
@@ -44,7 +45,7 @@ public class Model {
         this.filePath_graphml = filePath_graphml;
     }
 
-    public void Error(String errorMSG){
+    public void Error(String errorMSG) {
         controller.setErrorMessage(errorMSG);
     }
 
