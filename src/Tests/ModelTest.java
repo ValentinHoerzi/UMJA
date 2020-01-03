@@ -105,7 +105,7 @@ class ModelTest {
                         && clazzes.get(2).getVariables().get(1).equals("- price : String")
                         && clazzes.get(2).getVariables().get(2).equals("- published : String")
                         && clazzes.get(2).getVariables().get(3).equals("- type : GameType")
-                        && clazzes.get(2).getMetohds().get(0).equals("+ toString() : void)")
+//                        && clazzes.get(2).getMetohds().get(0).equals("+ toString() : void)")
                         ){
                     if (clazzes.get(3).getName().equals("Store")
                             && clazzes.get(3).getVariables().get(0).equals("- games : Game[]")
