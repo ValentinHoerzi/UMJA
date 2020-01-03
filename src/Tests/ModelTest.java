@@ -19,6 +19,7 @@ class ModelTest {
     @Test
     void parse() {
         List<Clazz> clazzes = new ArrayList<>();
+
         clazzes = parser.parse(new File("employee.graphml"));
         System.out.println(clazzes);
         assertEquals(clazzes.get(0).getName(), "Employee");
@@ -29,13 +30,16 @@ class ModelTest {
         List<Clazz> clazzes = new ArrayList<>();
         clazzes = parser.parse(new File("main.graphml"));
         System.out.println(clazzes);
-        if(clazzes.get(0).getName() == "Main" && clazzes.get(0).getVariables().get(0) == "final static - SCANNER : Scanner"
-        && clazzes.get(0).getVariables().get(1) == "final static - STORE : Store"
-        && clazzes.get(0).getVariables().get(2) == "static - user : User"
-                && clazzes.get(0).getMetohds().get(0) == "static + main(args : String[]) : void"
+        boolean right = false;
+        if(clazzes.get(0).getName().equals("Main")  && clazzes.get(0).getVariables().get(0).equals("final static - SCANNER : Scanner")
+        && clazzes.get(0).getVariables().get(1).equals("final static - STORE : Store")
+        && clazzes.get(0).getVariables().get(2).equals("static - user : User")
+                && clazzes.get(0).getMetohds().get(0).equals("static + main(args : String[]) : void")
         ){
-            assertTrue(true);
+            right = true;
         }
+
+        assertTrue(right);
 
     }
 
@@ -44,13 +48,38 @@ class ModelTest {
         List<Clazz> clazzes = new ArrayList<>();
         clazzes = parser.parse(new File("user_visitor_customer.graphml"));
         System.out.println(clazzes);
-        if(clazzes.get(0).getName() == "Customer" && clazzes.get(0).getVariables().get(0) == "final static - SCANNER : Scanner"
-                && clazzes.get(0).getVariables().get(1) == "final static - STORE : Store"
-                && clazzes.get(0).getVariables().get(2) == "static - user : User"
-                && clazzes.get(0).getMetohds().get(0) == "static + main(args : String[]) : void"
+        boolean right = false;
+
+
+
+        if(clazzes.get(0).getName().equals("Customer")
+                && clazzes.get(0).getVariables().get(0).equals("- name : String")
+                && clazzes.get(0).getVariables().get(1).equals("- library : Game[]")
+                && clazzes.get(0).getVariables().get(2).equals("- wishlist : Game[]")
+                && clazzes.get(0).getMetohds().get(0).equals("+ Customer(name : String)")
+                && clazzes.get(0).getMetohds().get(1).equals("+ getLibrary() : Game[]")
+                && clazzes.get(0).getMetohds().get(2).equals("+ addToLibrary(game : Game) : void")
+                && clazzes.get(0).getMetohds().get(3).equals("+ toString() : String")
+                && clazzes.get(0).getImports().get(0).equals("net.htlgrieskirchen.pos2.plf.retrosteam.user.User")
+                && clazzes.get(0).getImplementations().get(0).equals("User")
         ){
-            assertTrue(true);
+            if(clazzes.get(1).getName().equals("User")
+                    && clazzes.get(1).getVariables().get(0).equals("final static + CAPACITY = 2 : int")
+                    && clazzes.get(1).getMetohds().get(0).equals("+ getWishlist() : Game[]")
+                    && clazzes.get(1).getMetohds().get(1).equals("+ addToWishlist(game : Game) : void")
+            ){
+                if(clazzes.get(2).getName().equals("Visitor")
+                        && clazzes.get(2).getVariables().get(0).equals("- wishlist : Game[]")
+                        && clazzes.get(2).getMetohds().get(0).equals("+ Visitor()")
+                        && clazzes.get(2).getMetohds().get(1).equals("+ toString() : String")
+                        && clazzes.get(2).getImports().get(0).equals("net.htlgrieskirchen.pos2.plf.retrosteam.user.User")
+                        && clazzes.get(2).getImplementations().get(0).equals("User")
+                ){
+                    right = true;
+                }
+            }
         }
 
+        assertTrue(right);
     }
 }
