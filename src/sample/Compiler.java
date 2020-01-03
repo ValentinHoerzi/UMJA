@@ -17,7 +17,7 @@ public class Compiler {
     private String path;
 
     public void compile(List<Clazz> allClazzes, String path) {
-        if(allClazzes!=null && path!=null) {
+        if (allClazzes != null && path != null) {
             this.path = path;
             List<String> methods = new ArrayList<>();
             List<String> variables = new ArrayList<>();
@@ -51,10 +51,8 @@ public class Compiler {
             }
         }
 
-        // TODO: 03.01.2020 java.*
-        fileText.add("import java.util.*");
-        fileText.add("import java.awt.*");
-        fileText.add("import java.io.*");
+        fileText.addAll(getjavaImports());
+
 
         //class - implementations
         if (clazz.getImplementations() == null || clazz.getImplementations().isEmpty()) {
@@ -123,6 +121,23 @@ public class Compiler {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private List<String> getjavaImports() {
+        List<String> fileText = new LinkedList<>();
+        fileText.add("import java.util.*");
+        fileText.add("import java.awt.*");
+        fileText.add("import java.io.*");
+        fileText.add("import java.applet.*");
+        fileText.add("import java.beans.*");
+        fileText.add("import java.lang.*");
+        fileText.add("import java.math");
+        fileText.add("import java.net");
+        fileText.add("import java.nio.*");
+        fileText.add("import java.rmi.*");
+        fileText.add("import java.security.*");
+        fileText.add("import java.xml.*");
+        return fileText;
     }
 
     private String createMethod(String item) {
@@ -305,9 +320,9 @@ public class Compiler {
                 fileText.add("import " + item + ";");
             }
         }
+        fileText.addAll(getjavaImports());
 
         fileText.add("interface " + clazz.getName() + "{");
-
 
 
         //variable: final static + CAPACITY = 2:int
@@ -342,14 +357,6 @@ public class Compiler {
                 FileWriter writer = new FileWriter(new File(totalpath + "/" + clazzName + ".java"));
                 BufferedWriter fileWriter = new BufferedWriter(writer)
         ) {
-            /*String file = new File(totalpath).getPath().replaceAll("\\\\", "/");
-            do {
-                File packageBluej = new File(file + "/package.bluej");
-                packageBluej.createNewFile();
-                file = new File(file).getParent().replaceAll("\\\\", "/");
-            }
-            while (!file.equals(path));
-            */
             for (String line : fileString) {
                 fileWriter.write(line + "\n");
             }
