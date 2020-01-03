@@ -93,6 +93,7 @@ public class Clazz {
         if (imports == null) {
             imports = new ArrayList<>();
         }
+        if(imports.contains(import_string))return;
         imports.add(import_string);
     }
 
@@ -141,6 +142,10 @@ public class Clazz {
             return this;
         }
 
+        public String getName(){
+            return name;
+        }
+
         public Builder withMetohds(List<String> metohds) {
             this.metohds = metohds;
             return this;
@@ -158,6 +163,12 @@ public class Clazz {
 
         public Builder withImports(List<String> imports) {
             this.imports = imports;
+            return this;
+        }
+
+        public Builder addImport(String imp){
+            if(imports == null) imports = new ArrayList<>();
+            imports.add(imp);
             return this;
         }
 

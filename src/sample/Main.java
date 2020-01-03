@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -15,7 +16,9 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         stage.setTitle("UMJA Application");
         Model m = new Model(null);
-        m.parse(new File("uml.graphml")).forEach(System.out::println);
+        Parser p = new Parser(m);
+        List<Clazz> clazzes = p.parse("uml.graphml");
+        //m.parse(new File("uml.graphml")).forEach(System.out::println);
         Scene scene = new Scene(loader.load());
         Controller controller = loader.getController();
 
