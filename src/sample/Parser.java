@@ -12,19 +12,15 @@ import java.util.stream.Collectors;
 
 public class Parser {
     private Model model;
-
-    public Parser(Model model) {
+    public Parser(Model model){
         this.model = model;
     }
-
-    public List<Clazz> parse(String path) {
+    public List<Clazz> parse(String path){
         return parse(new File(path));
     }
-
     public List<Clazz> parse(File file) {
         List<Clazz> clazzes = new ArrayList<>();
         Map<String, String[]> idToName = new TreeMap<>();
-        Map<String, List<String>> importsToAddLater = new TreeMap<>();
 
         try {
 
@@ -67,16 +63,6 @@ public class Parser {
                             variables_list.set(idx, addFinalIfNeeded(variables_list.get(idx)));
                         }
                     }
-                    variables_list.forEach(v -> {
-                        if (v.contains(":")) {
-                            String trimmed = v.split(":")[1].trim();
-                            String nameOfImport = trimmed.replaceAll("([\\[\\]])|.+?(?=<)|<|>", "");
-
-                            if (importsToAddLater.get(clazzBuilder.getName()) == null)
-                                importsToAddLater.put(clazzBuilder.getName(), new ArrayList<>());
-                            importsToAddLater.get(clazzBuilder.getName()).add(nameOfImport);
-                        }
-                    });
                     clazzBuilder.withVariables(variables_list);
 
                     if (!stereotype.equals("enumeration")) {
@@ -86,15 +72,6 @@ public class Parser {
                         for (int idx = 0; idx < methods_list.size(); idx++) {
                             methods_list.set(idx, addStaticIfNeeded(methods_list.get(idx)));
                         }
-                        methods_list.forEach(v -> {
-
-                            String[] parts = v.split("(\\W)+");
-
-                            if (importsToAddLater.get(clazzBuilder.getName()) == null)
-                                importsToAddLater.put(clazzBuilder.getName(), new ArrayList<>());
-                            Arrays.stream(parts).forEach(a -> importsToAddLater.get(clazzBuilder.getName()).add(a));
-
-                        });
                         clazzBuilder.withMetohds(methods_list);
                     }
                     clazzes.add(clazzBuilder.build());
@@ -126,24 +103,7 @@ public class Parser {
                             .forEach(clazz -> clazz.addImport(idToName.get(trgtId)[0] + "." + idToName.get(trgtId)[1]));
                 }
             }
-            for (Map.Entry<String, List<String>> entry : importsToAddLater.entrySet()) {
-                for (String str : entry.getValue()) {
-                    for (Clazz clazz : clazzes) {
-                        if (clazz.getName().equals(entry.getKey())) {
-                            Optional<String[]> imp = idToName.entrySet()
-                                    .stream()
-                                    .map(stringEntry -> stringEntry.getValue())
-                                    .filter((value) -> value[1].equals(str))
-                                    .findFirst();
-                            if (imp.isPresent()) {
-                                String[] sarr = imp.get();
-                                clazz.addImport(sarr[0] + "." + sarr[1]);
-                                clazzes.set(clazzes.indexOf(clazz), clazz);
-                            }
-                        }
-                    }
-                }
-            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -155,7 +115,7 @@ public class Parser {
     private String addFinalIfNeeded(String string) {
         String[] sarr = string.split(" ");
         int idx = string.startsWith("static") ? 2 : 1;
-       // System.out.println(string);
+        System.out.println(string);
         if (sarr[idx].equals(sarr[idx].toUpperCase())) {
             string = "final " + string;
         }
