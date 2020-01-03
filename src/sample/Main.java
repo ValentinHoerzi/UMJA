@@ -17,7 +17,7 @@ public class Main extends Application {
         stage.setTitle("UMJA Application");
         Model m = new Model(null);
         Parser p = new Parser(m);
-        List<Clazz> clazzes = p.parse("uml.graphml");
+        List<Clazz> clazzes = p.parse("uml_v3.graphml");
         //m.parse(new File("uml.graphml")).forEach(System.out::println);
         Scene scene = new Scene(loader.load());
         Controller controller = loader.getController();

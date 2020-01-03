@@ -92,8 +92,9 @@ public class Parser {
 
                             if (importsToAddLater.get(clazzBuilder.getName()) == null)
                                 importsToAddLater.put(clazzBuilder.getName(), new ArrayList<>());
-                            Arrays.stream(parts).forEach(a -> importsToAddLater.get(clazzBuilder.getName()).add(a));
-
+                            Arrays.stream(parts)
+                                    //.map(x -> x.replaceAll("([\\[\\]])|.+?(?=<)|<|>", ""))
+                                    .forEach(a -> importsToAddLater.get(clazzBuilder.getName()).add(a));
                         });
                         clazzBuilder.withMetohds(methods_list);
                     }
