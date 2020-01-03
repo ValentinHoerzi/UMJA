@@ -125,18 +125,18 @@ public class Compiler {
 
     private List<String> getjavaImports() {
         List<String> fileText = new LinkedList<>();
-        fileText.add("import java.util.*");
-        fileText.add("import java.awt.*");
-        fileText.add("import java.io.*");
-        fileText.add("import java.applet.*");
-        fileText.add("import java.beans.*");
-        fileText.add("import java.lang.*");
-        fileText.add("import java.math");
-        fileText.add("import java.net");
-        fileText.add("import java.nio.*");
-        fileText.add("import java.rmi.*");
-        fileText.add("import java.security.*");
-        fileText.add("import java.xml.*");
+        fileText.add("import java.util.*;");
+        fileText.add("import java.awt.*;");
+        fileText.add("import java.io.*;");
+        fileText.add("import java.applet.*;");
+        fileText.add("import java.beans.*;");
+        fileText.add("import java.lang.*;");
+        fileText.add("import java.math;");
+        fileText.add("import java.net;");
+        fileText.add("import java.nio.*;");
+        fileText.add("import java.rmi.*;");
+        fileText.add("import java.security.*;");
+        fileText.add("import java.xml.*;");
         return fileText;
     }
 
