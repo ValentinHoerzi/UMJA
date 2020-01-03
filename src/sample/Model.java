@@ -25,7 +25,7 @@ public class Model {
         parser = new Parser(this);
 
         Compiler comp = new Compiler();
-        comp.compile(parser.parse(new File("D:/Dokumente_D/Google Drive/4AHIF/AUD/UMJA/uml.graphml")), "D:/Desktop/UMJAResult/test");
+        comp.compile(parser.parse(new File("D:/Dokumente_D/Google Drive/4AHIF/AUD/UMJA/uml.graphml")), "D:/Desktop_D/bluejProj/test");
     }
 
     public String getFilePath_java() {
