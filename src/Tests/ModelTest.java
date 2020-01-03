@@ -98,8 +98,8 @@ class ModelTest {
                 && clazzes.get(0).getMetohds().get(0).equals("static + main(args : String[]) : void"))
         {
             if (clazzes.get(1).getName().equals("GameType")
-                    && clazzes.get(1).getVariables().get(0).equals("ACTTION, ROLEPLAY, \nSTRATEGY, SPORT")
-                    && clazzes.get(1).getMetohds().equals(null)){
+                    && clazzes.get(1).getVariables().get(0).equals("ACTION, ROLEPLAY, \nSTRATEGY, SPORT")
+                    ){
                 if (clazzes.get(2).getName().equals("Game")
                         && clazzes.get(2).getVariables().get(0).equals("- name : String")
                         && clazzes.get(2).getVariables().get(1).equals("- price : String")
@@ -107,7 +107,13 @@ class ModelTest {
                         && clazzes.get(2).getVariables().get(3).equals("- type : GameType")
                         && clazzes.get(2).getMetohds().get(0).equals("+ toString() : void)")
                         ){
-                    if (){
+                    if (clazzes.get(3).getName().equals("Store")
+                            && clazzes.get(3).getVariables().get(0).equals("- games : Game[]")
+                            && clazzes.get(3).getMetohds().get(0).equals("+ Store()")
+                            && clazzes.get(3).getMetohds().get(1).equals("+ getGames() : Game[]")
+                            && clazzes.get(3).getMetohds().get(2).equals("+ addGameToUserWishlist(user : User, gameName : String) : void")
+                            && clazzes.get(3).getMetohds().get(3).equals("+ addGameToUserLibrary(user : User, gameName : String) : void")
+                            && clazzes.get(3).getImports().get(0).equals("net.htlgrieskirchen.pos2.plf.retrosteam.user.User")){
                         if(clazzes.get(4).getName().equals("Customer")
                                 && clazzes.get(4).getVariables().get(0).equals("- name : String")
                                 && clazzes.get(4).getVariables().get(1).equals("- library : Game[]")
