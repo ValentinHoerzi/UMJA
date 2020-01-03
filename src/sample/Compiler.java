@@ -131,12 +131,11 @@ public class Compiler {
         fileText.add("import java.applet.*;");
         fileText.add("import java.beans.*;");
         fileText.add("import java.lang.*;");
-        fileText.add("import java.math;");
-        fileText.add("import java.net;");
+        fileText.add("import java.math.*;");
+        fileText.add("import java.net.*;");
         fileText.add("import java.nio.*;");
         fileText.add("import java.rmi.*;");
         fileText.add("import java.security.*;");
-        fileText.add("import java.xml.*;");
         return fileText;
     }
 
@@ -322,7 +321,7 @@ public class Compiler {
         }
         fileText.addAll(getjavaImports());
 
-        fileText.add("interface " + clazz.getName() + "{");
+        fileText.add("public interface " + clazz.getName() + "{");
 
 
         //variable: final static + CAPACITY = 2:int
