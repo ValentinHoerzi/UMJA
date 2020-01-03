@@ -51,6 +51,11 @@ public class Compiler {
             }
         }
 
+        // TODO: 03.01.2020 java.*
+        fileText.add("import java.util.*");
+        fileText.add("import java.awt.*");
+        fileText.add("import java.io.*");
+
         //class - implementations
         if (clazz.getImplementations() == null || clazz.getImplementations().isEmpty()) {
             fileText.add("public class " + clazz.getName() + "{");
@@ -294,7 +299,15 @@ public class Compiler {
         //package
         fileText.add("package " + clazz.getNameSpace() + ";");
 
+        //imports
+        if (clazz.getImports() != null) {
+            for (String item : clazz.getImports()) {
+                fileText.add("import " + item + ";");
+            }
+        }
+
         fileText.add("interface " + clazz.getName() + "{");
+
 
 
         //variable: final static + CAPACITY = 2:int
