@@ -105,12 +105,8 @@ class ModelTest {
                         && clazzes.get(2).getVariables().get(1).equals("- price : String")
                         && clazzes.get(2).getVariables().get(2).equals("- published : String")
                         && clazzes.get(2).getVariables().get(3).equals("- type : GameType")
-                        && clazzes.get(2).getMetohds().get(0).equals("+ Customer(name : String)")
-                        && clazzes.get(2).getMetohds().get(1).equals("+ getLibrary() : Game[]")
-                        && clazzes.get(2).getMetohds().get(2).equals("+ addToLibrary(game : Game) : void")
-                        && clazzes.get(2).getMetohds().get(3).equals("+ toString() : String")
-                        && clazzes.get(2).getImports().get(0).equals("net.htlgrieskirchen.pos2.plf.retrosteam.user.User")
-                        && clazzes.get(2).getImplementations().get(0).equals("User")){
+                        && clazzes.get(2).getMetohds().get(0).equals("+ toString() : void)")
+                        ){
                     if (){
                         if(clazzes.get(4).getName().equals("Customer")
                                 && clazzes.get(4).getVariables().get(0).equals("- name : String")
