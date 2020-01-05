@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UMJA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/UMJA_jar</output-path>
+    <root id="archive" name="UMJA.jar">
+      <element id="module-output" name="UMJA" />
+    </root>
+  </artifact>
+</component>

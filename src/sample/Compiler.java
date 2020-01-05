@@ -1,8 +1,5 @@
 package sample;
 
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,14 +10,11 @@ import java.util.List;
 
 public class Compiler {
 
-    //private List<Clazz> allClazzes;
     private String path;
 
     public void compile(List<Clazz> allClazzes, String path) {
         if (allClazzes != null && path != null) {
             this.path = path;
-            List<String> methods = new ArrayList<>();
-            List<String> variables = new ArrayList<>();
             for (Clazz clazz : allClazzes) {
                 switch (clazz.getStereotype()) { // check if either class, enum or interface must be created
                     case "class":
@@ -143,7 +137,7 @@ public class Compiler {
         try {
             String method = "";
             String[] parts = item.split(" ");
-            List<String> list = new LinkedList<String>(Arrays.asList(parts));
+            List<String> list = new LinkedList<>(Arrays.asList(parts));
 
             //region public private static
 

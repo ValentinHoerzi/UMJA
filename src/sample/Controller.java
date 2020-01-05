@@ -27,12 +27,9 @@ public class Controller implements Initializable {
 
     private Model model;
 
-    public void setModel(Model model){
-        this.model = model;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        model = Model.INSTANCE();
         btnConvert.setDisable(true);
         tfProjectPath.setPromptText(System.getProperty("user.home"));
     }
@@ -88,6 +85,6 @@ public class Controller implements Initializable {
     }
 
     public void setErrorMessage(String errorMessage){
-
+        System.err.println(errorMessage);
     }
 }

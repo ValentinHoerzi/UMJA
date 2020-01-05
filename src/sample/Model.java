@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -19,10 +20,33 @@ public class Model {
     private String filePath_graphml;
     private String filePath_java;
 
+    private static Model model;
 
-    public Model(Controller controller) {
+    private Model() {
+    }
+
+    public static Model INSTANCE(){
+        if(Objects.isNull(model)){
+            model = new Model();
+            model.setParser(new Parser(model));
+        }
+        return model;
+    }
+
+    public Parser getParser() {
+        return parser;
+    }
+
+    public void setParser(Parser parser) {
+        this.parser = parser;
+    }
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public void setController(Controller controller) {
         this.controller = controller;
-        parser = new Parser(this);
     }
 
     public String getFilePath_java() {
@@ -42,12 +66,12 @@ public class Model {
     }
 
     public void execute(){
+        //add error handling here
         Compiler comp = new Compiler();
         comp.compile(parser.parse(new File(filePath_graphml)), filePath_java);
     }
 
     public void Error(String errorMSG) {
-        //controller.setErrorMessage(errorMSG);
+        controller.setErrorMessage(errorMSG);
     }
-
 }

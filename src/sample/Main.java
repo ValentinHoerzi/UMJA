@@ -17,10 +17,6 @@ public class Main extends Application {
         stage.setTitle("Convert UML-Diagrams to Java-Project templates");
 
         Scene scene = new Scene(loader.load());
-        Controller controller = loader.getController();
-
-        Model model = new Model(controller);
-        controller.setModel(model);
 
         stage.setScene(scene);
         stage.show();
