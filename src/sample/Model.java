@@ -23,10 +23,6 @@ public class Model {
     public Model(Controller controller) {
         this.controller = controller;
         parser = new Parser(this);
-
-        Compiler comp = new Compiler();
-        //comp.compile(parser.parse(new File(filePath_graphml)), filePath_java);
-        comp.compile(parser.parse(new File("D:\\Desktop_D\\uml_v3.graphml")), "D:\\Desktop_D\\bluejProj");
     }
 
     public String getFilePath_java() {
@@ -43,6 +39,11 @@ public class Model {
 
     public void setFilePath_graphml(String filePath_graphml) {
         this.filePath_graphml = filePath_graphml;
+    }
+
+    public void execute(){
+        Compiler comp = new Compiler();
+        comp.compile(parser.parse(new File(filePath_graphml)), filePath_java);
     }
 
     public void Error(String errorMSG) {

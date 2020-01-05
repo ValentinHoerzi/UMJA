@@ -13,8 +13,6 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -39,16 +37,13 @@ public class Controller implements Initializable {
         tfProjectPath.setPromptText(System.getProperty("user.home"));
     }
 
-    @FXML
-    public void onBtnSelectPath(ActionEvent actionEvent) {
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        File selectedDirectory = directoryChooser.showDialog(((Node)actionEvent.getTarget()).getScene().getWindow());
+    public void onDragDropped(DragEvent event) {
+        File file = event.getDragboard().getFiles().get(0);
 
-        if(selectedDirectory == null){
-            //No Directory selected
-        }else{
-            model.setFilePath_java(selectedDirectory.getAbsolutePath());
-            tfProjectPath.setText(selectedDirectory.getAbsolutePath());
+        if(file != null){
+            model.setFilePath_graphml(file.getAbsolutePath());
+            tfEnterFile.setText(file.getName());
+            btnConvert.setDisable(false);
         }
     }
 
@@ -69,10 +64,22 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void onBtnConvert(ActionEvent actionEvent) {
+    public void onBtnSelectPath(ActionEvent actionEvent) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File selectedDirectory = directoryChooser.showDialog(((Node)actionEvent.getTarget()).getScene().getWindow());
 
+        if(selectedDirectory == null){
+            //No Directory selected
+        }else{
+            model.setFilePath_java(selectedDirectory.getAbsolutePath());
+            tfProjectPath.setText(selectedDirectory.getAbsolutePath());
+        }
     }
 
+    @FXML
+    public void onBtnConvert(ActionEvent actionEvent) {
+        model.execute();
+    }
 
     public void onDragOverOver(DragEvent event) {
         if (event.getDragboard().hasFiles()) {
@@ -80,13 +87,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void onDragDropped(DragEvent event) {
-        File file = event.getDragboard().getFiles().get(0);
-        tfEnterFile.setText(file.getName());
-    }
-
-    public  void setErrorMessage(String errorMessage){
+    public void setErrorMessage(String errorMessage){
 
     }
-
 }
