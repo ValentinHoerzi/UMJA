@@ -8,9 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/UMJA_jar/UMJA.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/UMJA_jar/UMJA.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/EmployeeTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/EmployeeTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/GameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/GameType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/Visitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,19 +143,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="JUnit.ModelTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -161,12 +161,6 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
@@ -304,9 +298,7 @@
       <option name="WORKING_DIRECTORY" value="D:\4. HTL\AUD\UMJA" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="UMJA:jar" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
@@ -347,6 +339,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -375,6 +379,7 @@
       <workItem from="1578069979257" duration="5107000" />
       <workItem from="1578244513893" duration="87000" />
       <workItem from="1578244714287" duration="3735000" />
+      <workItem from="1578337187041" duration="248000" />
     </task>
     <servers />
   </component>
@@ -437,38 +442,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="296" key="FileChooserDialogImpl/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248419264" />
-    <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1578248466439">
+    <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1578337483135">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248466439" />
-    <state width="1877" height="186" key="GridCell.Tab.0.center" timestamp="1578248466439">
+    <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
+    <state width="1877" height="186" key="GridCell.Tab.0.center" timestamp="1578337483135">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248466439" />
-    <state width="1877" height="186" key="GridCell.Tab.0.left" timestamp="1578248466439">
+    <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
+    <state width="1877" height="186" key="GridCell.Tab.0.left" timestamp="1578337483135">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248466439" />
-    <state width="1877" height="186" key="GridCell.Tab.0.right" timestamp="1578248466439">
+    <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
+    <state width="1877" height="186" key="GridCell.Tab.0.right" timestamp="1578337483135">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248466439" />
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1578245775426">
+    <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1578337445241">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578245775426" />
-    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1578245775426">
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337445241" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1578337445240">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578245775426" />
-    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1578245775426">
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337445240" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1578337445240">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578245775426" />
-    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1578245775426">
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337445240" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1578337445241">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578245775426" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337445241" />
     <state x="440" y="115" key="SettingsEditor" timestamp="1578248378167">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
