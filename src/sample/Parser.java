@@ -147,7 +147,7 @@ public class Parser {
 
         } catch (Exception e) {
             e.printStackTrace();
-            model.Error("Failed to parse File\n\n" + e.getMessage());
+            model.throwErrorMessage("Failed to parse File\n\n" + e.getMessage());
         }
         return clazzes;
     }

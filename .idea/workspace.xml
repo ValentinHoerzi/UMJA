@@ -7,8 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/UMJA_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/UMJA_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/Tests/ModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/UMJA_jar/UMJA.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/UMJA_jar/UMJA.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UMJA/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UMJA/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testclazzes/EmployeeTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/EmployeeTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Game.java" afterDir="false" />
@@ -107,6 +119,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="umja" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -123,9 +139,9 @@
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/UMJA_jar/UMJA.jar" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -143,7 +159,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JAR Application.UMJA">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -184,105 +200,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UMJA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.ModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelTest.fullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UMJA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.ModelTest" />
-      <option name="METHOD_NAME" value="fullTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelTest.parse3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UMJA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.ModelTest" />
-      <option name="METHOD_NAME" value="parse3" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelTest.parseEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UMJA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.ModelTest" />
-      <option name="METHOD_NAME" value="parseEmployee" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelTest.parseFullUml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UMJA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.ModelTest" />
-      <option name="METHOD_NAME" value="parseFullUml" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -297,9 +214,7 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UMJA_jar/UMJA.jar" />
       <option name="WORKING_DIRECTORY" value="D:\4. HTL\AUD\UMJA" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2">
-        <option name="BuildArtifacts" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
@@ -325,19 +240,7 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JAR Application.UMJA" />
-      <item itemvalue="JUnit.ModelTest.parse3" />
-      <item itemvalue="JUnit.ModelTest.parseFullUml" />
-      <item itemvalue="JUnit.ModelTest.parseEmployee" />
-      <item itemvalue="JUnit.ModelTest.fullTest" />
-      <item itemvalue="JUnit.ModelTest" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ModelTest" />
-        <item itemvalue="JUnit.ModelTest.fullTest" />
-        <item itemvalue="JUnit.ModelTest.parseEmployee" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -418,10 +321,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="346" key="#BuildArtifactsBeforeRunChooser/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248444050" />
-    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578248455242">
+    <state x="414" y="196" width="1092" height="848" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578340200206">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248455242" />
+    <state x="414" y="196" width="1092" height="848" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340200206" />
     <state x="740" y="246" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1578248425638">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -430,34 +333,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578247568310" />
-    <state x="690" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578248359895">
+    <state x="690" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578340165870">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248359895" />
+    <state x="690" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340165870" />
     <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578244521335">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="640" y="275" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578244521335" />
-    <state x="740" y="296" key="FileChooserDialogImpl" timestamp="1578248419264">
+    <state x="740" y="296" key="FileChooserDialogImpl" timestamp="1578340197073">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="740" y="296" key="FileChooserDialogImpl/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248419264" />
-    <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1578337483135">
+    <state x="740" y="296" key="FileChooserDialogImpl/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340197073" />
+    <state width="1877" height="186" key="GridCell.Tab.0.bottom" timestamp="1578340201706">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
-    <state width="1877" height="186" key="GridCell.Tab.0.center" timestamp="1578337483135">
+    <state width="1877" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340201706" />
+    <state width="1877" height="186" key="GridCell.Tab.0.center" timestamp="1578340201705">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
-    <state width="1877" height="186" key="GridCell.Tab.0.left" timestamp="1578337483135">
+    <state width="1877" height="186" key="GridCell.Tab.0.center/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340201705" />
+    <state width="1877" height="186" key="GridCell.Tab.0.left" timestamp="1578340201705">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
-    <state width="1877" height="186" key="GridCell.Tab.0.right" timestamp="1578337483135">
+    <state width="1877" height="186" key="GridCell.Tab.0.left/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340201705" />
+    <state width="1877" height="186" key="GridCell.Tab.0.right" timestamp="1578340201705">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337483135" />
+    <state width="1877" height="186" key="GridCell.Tab.0.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340201705" />
     <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1578337445241">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -474,10 +377,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578337445241" />
-    <state x="440" y="115" key="SettingsEditor" timestamp="1578248378167">
+    <state x="440" y="115" key="SettingsEditor" timestamp="1578340172989">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="440" y="115" key="SettingsEditor/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578248378167" />
+    <state x="440" y="115" key="SettingsEditor/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578340172989" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1578248331019">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -486,5 +389,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="272" width="606" height="536" key="find.popup/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578247959960" />
+    <state x="666" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1578338312819">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="666" y="160" key="refactoring.ChangeSignatureDialog/0.0.1920.1080/-3104.11.1824.1026/-1280.13.1280.1024@0.0.1920.1080" timestamp="1578338312819" />
   </component>
 </project>
