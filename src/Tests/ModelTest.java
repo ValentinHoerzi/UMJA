@@ -2,20 +2,22 @@ package Tests;
 
 import org.junit.jupiter.api.Test;
 import sample.Clazz;
-import sample.Controller;
 import sample.Model;
 import sample.Parser;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ModelTest {
 
-    Model model = new Model(new Controller());
-    Parser parser = new Parser(model);
+    Parser parser = new Parser(Model.INSTANCE());
+    sample.Compiler compiler = new sample.Compiler();
     @Test
     void parse() {
         List<Clazz> clazzes = new ArrayList<>();
@@ -24,6 +26,8 @@ class ModelTest {
         System.out.println(clazzes);
         assertEquals(clazzes.get(0).getName(), "Employee");
     }
+
+
 
     @Test
     void parse2() {
@@ -151,5 +155,140 @@ class ModelTest {
         }
 
 
+    @Test
+    void testEmployee() throws Exception {
+        List<Clazz> clazzes = new ArrayList<>();
+
+        clazzes = parser.parse(new File("employee.graphml"));
+        System.out.println(clazzes);
+        compiler.compile(clazzes, "./testclazzes/EmployeeTest");
+
+        boolean t = false;
+
+
+        File f = new File("./testclazzes/EmployeeTest/net/Employee.java");
+        File f2 = new File("./testclazzes/EmployeeTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Employee.java");
+
+
+        FileReader fR1 = new FileReader(f);
+        FileReader fR2 = new FileReader(f2);
+
+        BufferedReader reader1 = new BufferedReader(fR1);
+        BufferedReader reader2 = new BufferedReader(fR2);
+
+        String line = reader1.readLine();
+        String line2 = reader2.readLine();
+        while (line != null){
+            if(line.equals(line2)){
+                t = true;
+            }else{
+                System.out.println(line + ":::"+line2);
+                t = false;
+                break;
+            }
+            line = reader1.readLine();
+            line2 = reader2.readLine();
+        }
+
+        //assertEquals(reader1.lines(), reader2.lines());
+        assertTrue(t);
+    }
+
+    @Test
+    void fullTest() throws Exception {
+        List<Clazz> clazzes = new ArrayList<>();
+
+        clazzes = parser.parse(new File("uml.graphml"));
+        System.out.println(clazzes);
+        compiler.compile(clazzes, "./testclazzes/FullTest");
+
+        boolean t = false;
+
+
+        File f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Main.java");
+        File f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Main.java");
+
+        t = compareFiles(f, f2);
+
+        if(t){
+
+            f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Customer.java");
+            f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/Customer.java");
+
+            t = compareFiles(f, f2);
+        }
+
+        if(t){
+
+            f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/User.java");
+            f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/User.java");
+
+            t = compareFiles(f, f2);
+        }
+
+        if(t){
+
+            f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Visitor.java");
+            f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/user/Visitor.java");
+
+            t = compareFiles(f, f2);
+        }
+
+        if(t){
+
+            f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Game.java");
+            f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Game.java");
+
+            t = compareFiles(f, f2);
+        }
+
+        if(t){
+
+            f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/GameType.java");
+            f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/GameType.java");
+
+            t = compareFiles(f, f2);
+        }
+
+        if(t){
+
+            f = new File("./testclazzes/FullTest/FullUMLTest/net/htlgrieskirchen/pos2/plf/retrosteam/main/Store.java");
+            f2 = new File("./testclazzes/FullTest/net/htlgrieskirchen/pos2/plf/retrosteam/store/Store.java");
+
+            t = compareFiles(f, f2);
+        }
+
+        //assertEquals(reader1.lines(), reader2.lines());
+        assertTrue(t);
+    }
+
+    private boolean compareFiles(File f, File f2){
+        boolean t = false;
+        try {
+            FileReader fR1 = new FileReader(f);
+            FileReader fR2 = new FileReader(f2);
+
+            BufferedReader reader1 = new BufferedReader(fR1);
+            BufferedReader reader2 = new BufferedReader(fR2);
+
+            String line = reader1.readLine();
+            String line2 = reader2.readLine();
+            while (line != null) {
+                if (line.equals(line2)) {
+                    t = true;
+                } else {
+                    System.out.println(line + ":::" + line2);
+                    return false;
+                }
+                line = reader1.readLine();
+                line2 = reader2.readLine();
+            }
+            return t;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return t;
+    }
 
 }
