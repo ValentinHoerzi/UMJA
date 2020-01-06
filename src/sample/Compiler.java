@@ -1,18 +1,15 @@
 package sample;
 
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Compiler {
 
@@ -20,21 +17,22 @@ public class Compiler {
     private String path;
 
     public void compile(List<Clazz> allClazzes, String path) {
-        this.path = path;
-
-        List<String> methods = new ArrayList<>();
-        List<String> variables = new ArrayList<>();
-        for (Clazz clazz : allClazzes) {
-            switch (clazz.getStereotype()) { // check if either class, enum or interface must be created
-                case "class":
-                    createClass(clazz);
-                    break;
-                case "enumeration":
-                    createEnum(clazz);
-                    break;
-                case "interface":
-                    createInterface(clazz);
-                    break;
+        if (allClazzes != null && path != null) {
+            this.path = path;
+            List<String> methods = new ArrayList<>();
+            List<String> variables = new ArrayList<>();
+            for (Clazz clazz : allClazzes) {
+                switch (clazz.getStereotype()) { // check if either class, enum or interface must be created
+                    case "class":
+                        createClass(clazz);
+                        break;
+                    case "enumeration":
+                        createEnum(clazz);
+                        break;
+                    case "interface":
+                        createInterface(clazz);
+                        break;
+                }
             }
         }
     }
@@ -52,13 +50,15 @@ public class Compiler {
                 fileText.add("import " + item + ";");
             }
         }
-        fileText.add("import sun.reflect.generics.reflectiveObjects.NotImplementedException;");
+
+        fileText.addAll(getjavaImports());
+
 
         //class - implementations
         if (clazz.getImplementations() == null || clazz.getImplementations().isEmpty()) {
             fileText.add("public class " + clazz.getName() + "{");
         } else {
-            String classLine = "public class " + clazz.getName() + " implements";
+            String classLine = "public abstract class " + clazz.getName() + " implements";
 
             //go through all implementations
             for (int i = 0; i < clazz.getImplementations().size(); i++) {
@@ -84,18 +84,59 @@ public class Compiler {
         // methods
 
         for (String item : clazz.getMetohds()) {
-            if (createMethod(item) != null)
-                fileText.add(createMethod(item) + "){throw new NotImplementedException();}");
+            if (createMethod(item) != null) {
+                String method = createMethod(item);
+                String[] parts = item.split(":");
+                if (!parts[parts.length - 1].contains(")")) { // it is no konstruktor
+
+                    switch (parts[parts.length - 1].trim()) {
+                        case "void":
+                            method += "){}";
+                            break;
+                        case "double":
+                        case "int":
+                        case "byte":
+                        case "short":
+                        case "long":
+                        case "float":
+                            method += "){return 0;}";
+                            break;
+                        default:
+                            method += "){return null;}";
+                            break;
+                    }
+                } else {
+                    method += "){}";
+                }
+                fileText.add(method);
+            }
         }
 
         //close class
         fileText.add("}");
 
         try {
-            writeFile("/Clazz.java", fileText);
+            String custumPath = clazz.getNameSpace().replaceAll("\\.", "/");
+            writeFile(custumPath, clazz.getName(), fileText);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private List<String> getjavaImports() {
+        List<String> fileText = new LinkedList<>();
+        fileText.add("import java.util.*;");
+        fileText.add("import java.awt.*;");
+        fileText.add("import java.io.*;");
+        fileText.add("import java.applet.*;");
+        fileText.add("import java.beans.*;");
+        fileText.add("import java.lang.*;");
+        fileText.add("import java.math.*;");
+        fileText.add("import java.net.*;");
+        fileText.add("import java.nio.*;");
+        fileText.add("import java.rmi.*;");
+        fileText.add("import java.security.*;");
+        return fileText;
     }
 
     private String createMethod(String item) {
@@ -259,7 +300,8 @@ public class Compiler {
         fileText.set(fileText.size() - 1, fileText.get(fileText.size() - 1).replace(",", ""));
         fileText.add(";}");
         try {
-            writeFile("/enum.java", fileText);
+            String custumPath = clazz.getNameSpace().replaceAll("\\.", "/");
+            writeFile(custumPath, clazz.getName(), fileText);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -271,7 +313,15 @@ public class Compiler {
         //package
         fileText.add("package " + clazz.getNameSpace() + ";");
 
-        fileText.add("interface " + clazz.getName() + "{");
+        //imports
+        if (clazz.getImports() != null) {
+            for (String item : clazz.getImports()) {
+                fileText.add("import " + item + ";");
+            }
+        }
+        fileText.addAll(getjavaImports());
+
+        fileText.add("public interface " + clazz.getName() + "{");
 
 
         //variable: final static + CAPACITY = 2:int
@@ -291,17 +341,19 @@ public class Compiler {
         //write text to file
         fileText.add("}");
         try {
-            writeFile("/interface.java", fileText);
+            String custumPath = clazz.getNameSpace().replaceAll("\\.", "/");
+            writeFile(custumPath, clazz.getName(), fileText);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    private void writeFile(String pathCustom, List<String> fileString) throws IOException {
-        String totalpath = path + pathCustom;
-        Files.createDirectories(Paths.get(path));
+    private void writeFile(String pathCustom, String clazzName, List<String> fileString) throws IOException {
+        String totalpath = path + "/" + pathCustom;
+        if (!Files.exists(Paths.get(totalpath)))
+            Files.createDirectories(Paths.get(totalpath));
         try (
-                FileWriter writer = new FileWriter(new File(totalpath));
+                FileWriter writer = new FileWriter(new File(totalpath + "/" + clazzName + ".java"));
                 BufferedWriter fileWriter = new BufferedWriter(writer)
         ) {
             for (String line : fileString) {

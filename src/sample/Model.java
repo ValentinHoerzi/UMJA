@@ -25,7 +25,8 @@ public class Model {
         parser = new Parser(this);
 
         Compiler comp = new Compiler();
-        comp.compile(parser.parse(new File("D:/Dokumente_D/Google Drive/4AHIF/AUD/UMJA/uml.graphml")), "D:/Desktop_D/bluejProj/test");
+        //comp.compile(parser.parse(new File(filePath_graphml)), filePath_java);
+        comp.compile(parser.parse(new File("D:\\Desktop_D\\uml_v3.graphml")), "D:\\Desktop_D\\bluejProj");
     }
 
     public String getFilePath_java() {
@@ -45,7 +46,7 @@ public class Model {
     }
 
     public void Error(String errorMSG) {
-        controller.setErrorMessage(errorMSG);
+        //controller.setErrorMessage(errorMSG);
     }
 
 }
