@@ -11,22 +11,12 @@ import java.util.List;
 
 public class Main extends Application {
 
-
-
     @Override
     public void start(Stage stage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        stage.setTitle("UMJA Application");
-        Model m = new Model(null);
-        Parser p = new Parser(m);
-        List<Clazz> clazzes = p.parse("uml.graphml");
-        //m.parse(new File("uml.graphml")).forEach(System.out::println);
-        Scene scene = new Scene(loader.load());
-        Controller controller = loader.getController();
+        stage.setTitle("Convert UML-Diagrams to Java-Project templates");
 
-        //Create dependence between objects
-        Model model = new Model(controller);
-        controller.setModel(model);
+        Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
         stage.show();

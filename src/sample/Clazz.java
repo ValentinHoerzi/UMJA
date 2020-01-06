@@ -12,17 +12,7 @@ public class Clazz {
     private List<String> implementations;
     private List<String> imports; // import + text from list + ;
 
-    public Clazz(String stereotype, String nameSpace, String name, List<String> metohds, List<String> variables, List<String> implementations, List<String> imports) {
-        this.stereotype = stereotype;
-        this.nameSpace = nameSpace;
-        this.name = name;
-        this.metohds = metohds;
-        this.variables = variables;
-        this.implementations = implementations;
-        this.imports = imports;
-    }
-
-    public Clazz() {
+    private Clazz() {
     }
 
     public String getStereotype() {
@@ -111,7 +101,7 @@ public class Clazz {
     }
 
 
-    public static final class Builder {
+    public static class Builder {
         private String stereotype;
         private String nameSpace;
         private String name;
